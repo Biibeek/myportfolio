@@ -10,8 +10,8 @@ body{
 }
 #header{
     width: 100%;
-    height: 1500px;
-    background-image: url(image/backgroundd-PhotoRoom\ \(1\).png);
-    background-size: cover;
+    height: 1000px;
+    background-image: url(image/bbek.png);
+    background-size: 100% 120%;
     background-position:center ;
 }
