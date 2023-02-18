@@ -1,23 +1,17 @@
-body {
-    font-family: "Open Sans", sans-serif;
-    background: #000;
-    color: #fafafa;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 100vh;
+*{
+    margin:0;
+    padding:0;
+    font-family: 'poppins',sans-serif;
+    box-sizing: border-box;
 }
-
-div {
-    margin: auto;
+body{
+    background: black;
+    color:white;
 }
-
-h1 {
-    font-size: 1.17em;
-}
-
-@media (max-width: 425px) {
-    h1 {
-        font-size: .83em;
-    }
+#header{
+    width: 100%;
+    height: 1500px;
+    background-image: url(image/backgroundd-PhotoRoom\ \(1\).png);
+    background-size: cover;
+    background-position:center ;
 }
