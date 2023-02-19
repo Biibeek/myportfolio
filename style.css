@@ -179,28 +179,31 @@ nav ul li a:hover::after{
     transform: translateY(-10px);
 }
 /*---portfolio section---*/
-#portfolio{
-    padding: 50px 0;
-}
-.work-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    grid-gap:40px;
-    margin-top: 50px;
+
+/* set the box-sizing property to border-box to include padding and borders in the element's total width and height */
+#portfolio {
+    box-sizing: border-box;
 }
 
-  
-.work{
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
+/* style for each individual work item */
+.work-list {
+    float: left; /* float the element to the left to create a horizontal row */
+    width: 33.33%; /* set the width to one third of the container to create a 3-column layout */
+    padding: 10px;
 }
-.work img{
-    width: 100%;
-    border-radius: 10px;
-    display: block;
-} 
 
-
+/* style for the images within each work item */
+.work-list img { 
+    display: block; /* display the image as a block element to fill the parent container */
+    width: 100%; /* set the image width to fill the parent container */
+    border-radius: 10px; /* set the border radius to 50% to create a circular shape */
+    transition: transform 0.5s;
+}
     
+/* hover effect to zoom the image */
+.work-list img:hover {
+    transform: scale(1.1); /* zoom the image by 10% on hover */
+}
+
+
 
