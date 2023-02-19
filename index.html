@@ -46,16 +46,16 @@
                         community.</p>
 
                         <div class="tab-titles">
-                            <p class="tab-links active-link">Skills</p>
-                            <p class="tab-links">Experience</p>
-                            <p class="tab-links">Education</p>
+                            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                            <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                            <p class="tab-links" onclick="opentab('education')">Education</p>
                         </div>
                        <!--- <div class="tab-content">
                             <div class="tab active-tab">Skills content goes here</div>
                             <div class="tab">Experience content goes here</div>
                             <div class="tab">Education content goes here</div>
                           </div> -->
-                          <div class="tab-contents">
+                          <div class="tab-contents active-tab" id="skills">
                             <ul>
                                 <li><span>HTML</span></li>
                                 <li><span>CSS</span></li>
@@ -65,14 +65,14 @@
                             </ul>
                           </div>
 
-                          <div class="tab-contents">
+                          <div class="tab-contents" id="experience">
                             <ul>
-                                <li><span>Personal Portfolio Website</span><br>Technologies Used: HTML, CSS, JavaScript</li>
+                                <li><span>Designed and developed a responsive website for a<br> local business using HTML, CSS, and JavaScript</span></li>
                               
                             </ul>
                           </div>
 
-                          <div class="tab-contents">
+                          <div class="tab-contents" id="education">
                             <ul>
                                 <li><span>2021-2022</span><br>C and C++ Programming Course, DTEF College</li>
                                 <li><span>2021-current</span><br>Web Development,Online</li>
@@ -83,6 +83,50 @@
             </div>
         </div>
     </div>
+
+
+
+    <script>
+        
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+
+        //removing class active link on tap
+        function opentab(tabname){
+            for(tablink of tablinks){
+                tablink.classlist.remove("active-link");
+            }
+            for(tabcontent of tabcontents){
+                tabcontent.classlist.remove("active-tab");
+            }
+        //making display when clicking on experience and education 
+        event.currentTarget.classlist.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab"); 
+
+
+   /* var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname, currentLink) {
+        for (var i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active-link");
+        }
+        for (var i = 0; i < tabcontents.length; i++) {
+            tabcontents[i].classList.remove("active-tab");
+        }
+        currentLink.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+    for (var i = 0; i < tablinks.length; i++) {
+        tablinks[i].addEventListener("click", function() {
+            var tabname = this.getAttribute("data-tab");
+            opentab(tabname, this);
+        });  */
+    }  
+
+    </script>
 </body>
 
 </html>
