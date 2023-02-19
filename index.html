@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Portfolio Website</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -23,7 +24,7 @@
                     </ul>
             </nav>
             <div class="header-text">
-                <h1>Hi, I'm Teknath<span>Bhurtel</span></h1>
+                <h1>Hi,<br> I'm Teknath<span>Bhurtel</span></h1>
                 <p>This is my official portfolio website <br> which showcases all the details of
                     <br>my work experience and qualifications.
                 </p>
@@ -60,7 +61,7 @@
                                 <li><span>HTML</span></li>
                                 <li><span>CSS</span></li>
                                 <li><span>JavaScript</span></li>
-                                <li><span>C program</span></li>
+                                <li><span>C</span></li>
                                 <li><span>C++</span></li>
                             </ul>
                           </div>
@@ -83,6 +84,43 @@
             </div>
         </div>
     </div>
+<!----services-->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My Services</h1>
+        <div class="services-list">
+        
+       
+    <div>
+        <i class="fas fa-app-store"></i>
+    <h2>Web Development</h2>
+    <p>I develop responsive, user-friendly, and visually appealing websites for clients.
+         I have experience with a variety of web development tools and technologies, including
+          HTML, CSS, JavaScript, and WordPress. I am committed to creating websites that are optimized
+           for performance, security, and search engine rankings.</p>
+    <a href="#">Learn more</a>
+</div>
+<div>
+    <i class="fas fa-crop-alt"></i>
+<h2>Presentation Design</h2>
+<p>I offer presentation design services for students who need help 
+    creating visually appealing and effective presentations. I am skilled at 
+    using a variety of presentation software, and I can help students create
+     presentations that are engaging, informative, and memorable.</p>
+<a href="#">Learn more</a>
+</div>
+<div>
+    <i class="fas fa-code"></i>
+<h2>Tutoring</h2>
+<p>I offer one-on-one tutoring services in a variety of <br>
+    subjects, including math, science, English, and   
+    <br>social studies. I am patient and understanding,
+    <br> and I use a variety of teaching methods to help my students understand
+    the material and succeed in their classes</p>
+<a href="#">Learn more</a>
+</div>
+    </div>
+</div>
 
 
 
@@ -95,13 +133,13 @@
         //removing class active link on tap
         function opentab(tabname){
             for(tablink of tablinks){
-                tablink.classlist.remove("active-link");
+                tablink.classList.remove("active-link");
             }
             for(tabcontent of tabcontents){
-                tabcontent.classlist.remove("active-tab");
+                tabcontent.classList.remove("active-tab");
             }
         //making display when clicking on experience and education 
-        event.currentTarget.classlist.add("active-link");
+        event.currentTarget.classList.add("active-link");
         document.getElementById(tabname).classList.add("active-tab"); 
 
 
