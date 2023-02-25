@@ -320,9 +320,13 @@ form .button{
 
 
 /*--for responsive---*/
-nav .fas{
-    display: none;
+
+@media only screen and (min-width: 768px) {
+    nav .fa{
+        display: none;
+    }
 }
+
 @media only screen and (max-width:600px){
     #header{
         background-image: url(image/bbek.png);
