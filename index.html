@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Webpage</title>
     <style>
+        /* Add your CSS styles here */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -24,11 +25,13 @@
             position: fixed;
             height: 100%;
             overflow-y: auto;
-            transition: width 0.3s ease;
+            transition: width 0.3s ease, transform 0.3s ease;
         }
 
         .sidebar:hover {
             width: 220px;
+            transform: translateX(10px);
+            /* Move sidebar to the right */
         }
 
         .sidebar nav {
@@ -51,6 +54,32 @@
             background-color: red;
             color: white;
         }
+
+
+
+        .sidebar:hover~.main-content #about {
+            transform: translateX(10px);
+            /* Move #about to the right on sidebar hover */
+        }
+
+        #about {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: auto;
+            /* Allow scrolling if content exceeds viewport */
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+
 
         .main-content {
             margin-left: 200px;
@@ -105,6 +134,97 @@
             z-index: 2;
         }
 
+        @keyframes letterDrop {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #about h1 {
+            display: inline-block;
+            font-size: 3rem;
+            /* Adjust as needed */
+            overflow: hidden;
+            white-space: nowrap;
+            /* Ensure no line breaks */
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 1px;
+            margin-top: -24px;
+            padding: 10px;
+            position: relative;
+            /* Required for pseudo-elements */
+        }
+
+        #about h1::before,
+        #about h1::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: #ff6347;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #about h1::before {
+            left: -60px;
+            /* Position line before the text */
+        }
+
+        #about h1::after {
+            right: -60px;
+            /* Position line after the text */
+        }
+
+        #about h1 span {
+            display: inline-block;
+            opacity: 0;
+            animation: letterDrop 0.5s forwards;
+            margin: 0;
+            /* Ensure no extra margins */
+            padding: 0;
+        }
+
+        #about h1 span:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        #about h1 span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        #about h1 span:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        #about h1 span:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        #about h1 span:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        #about h1 span:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        #about h1 span:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        #about h1 span:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+
+
         @keyframes textMovement {
             0% {
                 transform: translateY(0);
@@ -136,32 +256,22 @@
             color: #333;
         }
 
-        /* Add this CSS code to your existing <style> block */
         .header-name {
             font-size: 2rem;
-            /* Adjust font size as needed */
             color: #0dee05;
-            /* Text color */
             margin: 0.5rem 0;
-            /* Margin for spacing */
             transition: transform 0.3s ease, color 0.3s, text-shadow 0.3s ease;
             position: relative;
             display: inline-block;
             will-change: transform;
         }
 
-        /* Add hover effect for the name */
         .header-name:hover {
             color: #757379e9;
-            /* Change text color on hover */
             text-shadow: 1px 1px 2px rgb(18, 3, 1);
-            /* Glowing effect */
             transform: scale(1.1);
-            /* Slight zoom effect */
         }
 
-
-        /* Animated Text */
         @keyframes bounce {
 
             0%,
@@ -190,6 +300,176 @@
             transition: transform 0.3s ease;
         }
 
+        .section-title {
+            font-size: 2rem;
+            margin: 1rem 0;
+            transition: transform 0.6s ease, color 0.3s ease;
+            perspective: 1000px;
+            /* Perspective for 3D effect */
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .section-title:hover {
+            transform: rotateY(15deg) rotateX(10deg);
+            color: #ff6347;
+            /* Change color on hover */
+        }
+
+
+
+
+        /* Portfolio Section */
+        #portfolio {
+            padding: 20px;
+        }
+
+        #portfolio h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .project {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .project h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        .project p {
+            font-size: 1em;
+            margin: 10px 0;
+        }
+
+        .project a {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .project a:hover {
+            background-color: #0056b3;
+        }
+
+        #skills-section {
+            padding: 20px;
+        }
+
+        #skills-section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .skill {
+            margin-bottom: 20px;
+        }
+
+        .skill h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar {
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 20px;
+            ;
+        }
+
+        .progress {
+            background-color: #007BFF;
+            height: 100%;
+            width: 0;
+            transition: width 0.1s ease-out;
+
+        }
+
+        @keyframes progress-bar {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: var(--skill-width);
+            }
+        }
+
+        /* Specific widths for each skill */
+        .html-skill {
+            --skill-width: 80%;
+        }
+
+        .css-skill {
+            --skill-width: 70%;
+        }
+
+        .python-skill {
+            --skill-width: 60%;
+        }
+
+        .js-skill {
+            --skill-width: 55%;
+        }
+
+        .php-skill {
+            --skill-width: 40%;
+        }
+
+
+
+
+        /* Contact Section */
+        #contact {
+            padding: 20px;
+        }
+
+        #contact h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        #contact p {
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        #contact a {
+            color: #007BFF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        #contact a:hover {
+            color: #0056b3;
+        }
+
+
+
+
+
+
+
         @media (max-width: 768px) {
             .sidebar {
                 width: 100%;
@@ -204,78 +484,163 @@
         }
     </style>
 </head>
-
-<body>
-    <div class="sidebar">
-        <nav>
-            <a href="#" data-target="home">Home</a>
-            <a href="#" data-target="about">About Me</a>
-            <a href="#" data-target="portfolio">Portfolio</a>
-            <a href="#" data-target="contact">Contact</a>
-        </nav>
+<div class="sidebar">
+    <nav>
+        <a href="#" data-target="home">Home</a>
+        <a href="#" data-target="about">About Me</a>
+        <a href="#" data-target="portfolio">Portfolio</a>
+        <a href="#" data-target="contact">Contact</a>
+    </nav>
+</div>
+<div class="main-content">
+    <div id="home" class="page-content">
+        <header>
+            <img src="/image/backgroundd.png" alt="My Profile Picture" class="profile-img">
+            <h1 class="header-text">Welcome to My Personal Webpage.</h1>
+            <h2 class="header-name">Myself Teknath Bhurtel.</h2>
+            <p class="header-text">And I am a BSc CSIT student who likes to learn about new technologies and I am more
+                curious about reading new information about AI.</p>
+            <p class="animated-text">Explore more about my projects, learn about me, and get in touch!</p>
+        </header>
     </div>
-    <div class="main-content">
-        <div id="home" class="page-content">
-            <header>
-                <img src="/image/backgroundd.png" alt="My Profile Picture" class="profile-img">
-                <h1 class="header-text">Welcome to My Personal Webpage</h1>
-                <h2 class="header-name">Teknath Bhurtel</h2>
-                <p class="header-text">Hello! I am a BSc CSIT student who likes to learn about new technologies and I am
-                    more curious about reading new information about AI.</p>
-                <p class="animated-text">Explore my projects, learn about me, and get in touch!</p>
-            </header>
+    <div id="about" class="page-content" style="display: none;">
+        <h1><span>A</span><span>b</span><span>o</span><span>u</span><span>t</span><span>&nbsp;</span><span>M</span><span>E</span>
+        </h1>
+        <div id="introduction">
+            <h2 class="section-title">Introduction</h2>
+            <p>Hello! I'm Teknath Bhurtel, a passionate Computer Science and Information Technology (CSIT) student
+                currently in my 7th semester. I have a deep interest in learning new technologies and exploring the
+                fascinating world of Artificial Intelligence.</p>
         </div>
-        <div id="about" class="page-content" style="display: none;">
-            <h2>About Me</h2>
-            <p>Hello! I am a BSc CSIT student who likes to learn about new technologies and I am more curious about
-                reading new information about AI. Welcome to my personal webpage where I share my interests and
-                projects.</p>
+        <div id="education">
+            <h2 class="section-title">Education</h2>
+            <p>I'm pursuing a Bachelor's degree in Computer Science and Information Technology (BSc CSIT). Throughout my
+                studies, I have gained a solid foundation in various areas of computer science, including programming,
+                web development, and software engineering.</p>
         </div>
-        <div id="portfolio" class="page-content" style="display: none;">
-            <h2>Portfolio</h2>
-            <div class="portfolio-item">
-                <h3>Project 1</h3>
-                <p>Brief description of Project 1.</p>
+        <div id="skills">
+            <h2 class="section-title">Skills</h2>
+            <p>I have developed a diverse set of technical skills, including:</p>
+            <ul>
+                <li><strong>Programming Languages:</strong> C, C++, C#, Python</li>
+                <li><strong>Web Development:</strong> HTML, CSS, JavaScript, PHP</li>
+            </ul>
+        </div>
+        <div id="experience">
+            <h2 class="section-title">Experience</h2>
+            <p>As a student, I am continually expanding my knowledge and working on various projects to hone my skills.
+                Currently, I am working on a project titled "Government Web Directory Portal," which involves
+                requirement analysis, planning, design, and testing.</p>
+        </div>
+        <div id="hobbies">
+            <h2 class="section-title">Hobbies and Interests</h2>
+            <p>I have a keen interest in new technologies and Artificial Intelligence. I enjoy reading about the latest
+                advancements in AI and experimenting with different programming languages and tools.</p>
+        </div>
+        <div id="goals">
+            <h2 class="section-title">Goals</h2>
+            <p>My goal is to become a proficient and innovative developer. I am dedicated to continuously improving my
+                skills and contributing to exciting projects in the tech industry.</p>
+        </div>
+    </div>
+    <div id="portfolio" class="page-content" style="display: none;">
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Government Web Directory Portal</h3>
+                <p>A comprehensive web directory for government services and resources. This project includes search
+                    functionality, user authentication, and a user-friendly interface.</p>
+                <p><strong>Technologies used:</strong> HTML, CSS, JavaScript, PHP, MySQL</p>
+                <a href="http://example.com" target="_blank">View Project</a>
             </div>
-            <div class="portfolio-item">
-                <h3>Project 2</h3>
-                <p>Brief description of Project 2.</p>
+            <div class="project">
+                <h3>Personal Blog</h3>
+                <p>A personal blogging platform where I share my thoughts on technology, programming, and AI. It
+                    features a content management system and a responsive design.</p>
+                <p><strong>Technologies used:</strong> Python, Flask, SQLAlchemy, Bootstrap</p>
+                <a href="http://example.com" target="_blank">View Project</a>
             </div>
-        </div>
-        <div id="contact" class="page-content" style="display: none;">
+            <div class="project">
+                <h3>E-commerce Website</h3>
+                <p>An online shopping platform that allows users to browse products, add them to a cart, and make
+                    purchases. Includes user authentication, payment gateway integration, and order management.</p>
+                <p><strong>Technologies used:</strong> HTML, CSS, JavaScript, React, Node.js, MongoDB</p>
+                <a href="http://example.com" target="_blank">View Project</a>
+            </div>
+        </section>
+        <section id="skills-section">
+            <h2 class="section-title">Skills</h2>
+            <div class="skill">
+                <h3>HTML</h3>
+                <div class="progress-bar">
+                    <div class="progress html-skill"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>CSS</h3>
+                <div class="progress-bar">
+                    <div class="progress css-skill"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>Python</h3>
+                <div class="progress-bar">
+                    <div class="progress python-skill"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>JavaScript</h3>
+                <div class="progress-bar">
+                    <div class="progress js-skill"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>PHP</h3>
+                <div class="progress-bar">
+                    <div class="progress php-skill"></div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
             <h2>Contact</h2>
-            <p>If you would like to get in touch, please feel free to reach out to me via email at <a
-                    href="mailto:bhurtellbbek@gmail.com">bhurtellbbek@gmail.com</a>.</p>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" required><br><br>
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4" required></textarea><br><br>
-                <input type="submit" value="Send">
-            </form>
-        </div>
+            <p>If you would like to get in touch, please email me at <a
+                    href="bhurtellbbek@gmail.com">bhurtellbbek@gmail.com</a>.</p>
+        </section>
     </div>
-    <footer>
-        <p>&copy; 2024 My Personal Webpage</p>
-    </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const headerText = document.querySelector('.header-text');
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const headerText = document.querySelector('.header-text');
 
-            document.querySelectorAll('.sidebar a').forEach(link => {
-                link.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    const targetId = this.getAttribute('data-target');
-                    document.querySelectorAll('.page-content').forEach(page => {
-                        page.style.display = 'none';
-                    });
-                    document.getElementById(targetId).style.display = 'block';
+        // Handle sidebar link clicks
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                document.querySelectorAll('.page-content').forEach(page => {
+                    page.style.display = 'none';
                 });
-            });
+                const targetPage = document.getElementById(targetId);
+                targetPage.style.display = 'block';
 
-            document.addEventListener('mousemove', (event) => {
+                // Trigger progress bar animation if "Portfolio" is clicked
+                if (targetId === 'portfolio') {
+                    setTimeout(() => {
+                        resetProgressBars();
+                        window.addEventListener('scroll', onScroll);
+                        // Trigger scroll event to start animation immediately if already scrolled
+                        onScroll();
+                    }, 10); // Delay to ensure content is displayed
+                } else {
+                    // Ensure progress bars are not animated if not on portfolio page
+                    window.removeEventListener('scroll', onScroll);
+                }
+            });
+        });
+
+        // Handle zoom effect on the header text
+        document.addEventListener('mousemove', (event) => {
+            if (headerText) {
                 const rect = headerText.getBoundingClientRect();
                 const centerX = rect.left + rect.width / 2;
                 const centerY = rect.top + rect.height / 2;
@@ -289,13 +654,52 @@
 
                 const scale = 1 + Math.min(distance / maxDistance, 1) * zoomIntensity;
                 headerText.style.transform = `scale(${scale})`;
-            });
+            }
+        });
 
+        // Reset scale when mouse leaves the header text
+        if (headerText) {
             headerText.addEventListener('mouseleave', () => {
                 headerText.style.transform = 'scale(1)';
             });
-        });
-    </script>
+        }
+
+        // Function to reset progress bars
+        function resetProgressBars() {
+            const skills = document.querySelectorAll('.progress');
+            skills.forEach(skill => {
+                skill.style.transition = 'none'; // Disable transition during reset
+                skill.style.width = '0%'; // Reset to 0%
+            });
+            // Force a reflow to apply reset styles
+            document.body.offsetHeight; // This line ensures the reset is applied
+        }
+
+        // Function to animate progress bars based on scroll
+        function onScroll() {
+            const skills = document.querySelectorAll('.progress');
+            skills.forEach(skill => {
+                const skillRect = skill.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const skillVisible = skillRect.top < windowHeight && skillRect.bottom > 0;
+
+                if (skillVisible) {
+                    console.log('Skill visible:', skill);
+                    // Get the width from CSS variable and apply it
+                    const width = getComputedStyle(skill).getPropertyValue('--skill-width');
+                    skill.style.transition = 'width 0.5s ease-out'; // Adjust duration and timing function as needed
+                    skill.style.width = width;
+                }
+            });
+
+            // Remove scroll event listener after animation
+            // window.removeEventListener('scroll', onScroll);
+        }
+    });
+</script>
+
+
+
 </body>
 
 </html>
