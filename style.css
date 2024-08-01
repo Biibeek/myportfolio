@@ -628,7 +628,7 @@
                 width: 100%;
                 height: auto;
                 position: relative;
-                transform: translateX(0);
+                transform: none; /* Reset any transforms applied */
             }
         
             .sidebar:hover {
@@ -656,7 +656,7 @@
             .main-content {
                 margin-left: 0;
                 width: 100%;
-                padding: 10px;
+                padding: 10px; 
             }
         
             #about {
