@@ -619,7 +619,7 @@
 
         .submitted {
             opacity: 0.5;
-            /* Add more styles as needed for animation */
+           
         }
         
 
@@ -628,10 +628,88 @@
                 width: 100%;
                 height: auto;
                 position: relative;
+                transform: translateX(0);
             }
-
+        
+            .sidebar:hover {
+                width: 100%;
+                transform: none;
+            }
+        
+            .sidebar nav {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        
+            .sidebar a {
+                padding: 10px;
+                border-bottom: none;
+                text-align: center;
+                width: auto;
+                border-right: 1px solid #444;
+            }
+        
+            .sidebar a:hover {
+                background-color: red;
+            }
+        
             .main-content {
                 margin-left: 0;
                 width: 100%;
+                padding: 10px;
+            }
+        
+            #about {
+                padding: 10px;
+            }
+        
+            #contactSection {
+                max-width: 100%;
+                padding: 10px;
+            }
+        
+            #contactForm {
+                padding: 10px;
+            }
+        }
+        
+        /* Ensuring that other sections adapt to smaller screens */
+        @media (max-width: 576px) {
+            .header-text {
+                font-size: 1.2rem;
+            }
+        
+            .section-title {
+                font-size: 1.5rem;
+            }
+        
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+        
+            .animated-text {
+                font-size: 1rem;
+            }
+        
+            .project h3 {
+                font-size: 1.2em;
+            }
+        
+            .project p {
+                font-size: 0.9em;
+            }
+        
+            .form-group input,
+            .form-group textarea {
+                font-size: 0.9em;
+            }
+        
+            button[type="submit"] {
+                font-size: 14px;
+            }
+        
+            .social-links a {
+                font-size: 20px;
             }
         }
