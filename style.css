@@ -617,7 +617,11 @@
             background-color: #128C7E;
         }
 
-
+        .submitted {
+            opacity: 0.5;
+            /* Add more styles as needed for animation */
+        }
+        
 
         @media (max-width: 768px) {
             .sidebar {

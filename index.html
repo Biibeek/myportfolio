@@ -137,7 +137,7 @@
         <div id="contact" class="page-content" style="display: none;">
             <section id="contactSection">
                 <h2>Contact Me</h2>
-                <form id="contactForm" action="submit-form.php" method="post">
+                <form id="contactForm" action="https://formspree.io/f/manwobno" method="post">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required>
@@ -152,6 +152,7 @@
                     </div>
                     <button type="submit">Submit</button>
                 </form>
+
 
                 <!-- Social Media Links -->
                 <div class="social-links">
@@ -261,19 +262,31 @@
                 // window.removeEventListener('scroll', onScroll);
             }
 
-            // Handle form submission
+            // Handle form submission with Formspree
             document.getElementById('contactForm').addEventListener('submit', function (event) {
                 event.preventDefault();
 
-                // Add an animation effect for form submission
-                this.classList.add('submitted');
+                const form = this;
+                const formData = new FormData(form);
 
-                // Simulate a delay for form submission
-                setTimeout(() => {
-                    alert('Thank you for your message!');
-                    this.reset(); // Reset the form after submission
-                    this.classList.remove('submitted');
-                }, 2000); // 2 seconds delay
+                // Send form data to Formspree
+                fetch('https://formspree.io/f/xwpeolld', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Success:', data);
+                        alert('Thank you for your message!');
+                        form.reset(); // Reset the form after submission
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Sorry, there was a problem sending your message.');
+                    });
             });
         });
     </script>
