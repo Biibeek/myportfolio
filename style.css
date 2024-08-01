@@ -1,127 +1,633 @@
-/* Reset Some Basic Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f0f0f0;
-    color: #333;
-}
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'); 
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 1rem;
-}
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
 
-header {
-    background: #333;
-    padding: 1rem 0;
-    color: white;
-    text-align: center;
-}
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+            transition: width 0.3s ease, transform 0.3s ease;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
+        .sidebar:hover {
+            width: 220px;
+            transform: translateX(10px);
+            /* Move sidebar to the right */
+        }
 
-nav ul li {
-    margin: 0 1rem;
-}
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
+        .sidebar a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+            border-bottom: 1px solid #444;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
 
-section {
-    padding: 2rem 0;
-    text-align: center;
-}
+        .sidebar a:hover {
+            background-color: red;
+            color: white;
+        }
 
-.intro {
-    text-align: left;
-    margin-top: 2rem;
-}
 
-.profile-pic {
-    text-align: center;
-    margin-top: 2rem;
-}
 
-.round-pic {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-}
+        .sidebar:hover~.main-content #about {
+            transform: translateX(10px);
+            /* Move #about to the right on sidebar hover */
+        }
 
-.project-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
+        #about {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: auto;
+            /* Allow scrolling if content exceeds viewport */
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
 
-.project {
-    background: white;
-    border: 1px solid #ccc;
-    padding: 1rem;
-    margin: 1rem;
-    width: calc(33% - 2rem);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-.project h3 {
-    margin-bottom: 0.5rem;
-}
 
-.project p {
-    margin-bottom: 1rem;
-}
+        .main-content {
+            margin-left: 200px;
+            padding: 20px;
+            width: calc(100% - 200px);
+            flex: 1;
+            position: relative;
+            padding-top: 60px;
+        }
 
-.project a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-}
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-footer {
-    background: #333;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-    margin-top: 2rem;
-}
+        .profile-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
 
-@media (max-width: 768px) {
-    .container {
-        width: 100%;
-        padding: 0.5rem;
-    }
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 20px;
+        }
 
-    .project {
-        width: calc(50% - 2rem);
-    }
-}
+        .header-text {
+            font-size: 1.5rem;
+            color: #0d030195;
+            margin: 0;
+            transition: transform 0.3s ease, color 0.3s text-shadow 0.3s ease;
+            position: relative;
+            display: inline-block;
+            will-change: transform;
+        }
 
-@media (max-width: 480px) {
-    .project {
-        width: calc(100% - 2rem);
-    }
+        .header-text:hover::before {
+            background-position: 100% 0;
+        }
 
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
+        .header-text:hover {
+            color: #ff6347;
+            text-shadow: 0 0 10px rgba(255, 99, 71, 0.6);
+            transform: scale(1.05);
+            animation: textMovement 2s ease-in-out infinite;
+            z-index: 2;
+        }
 
-    nav ul li {
-        margin: 0.5rem 0;
-    }
-}
+        @keyframes letterDrop {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #about h1 {
+            display: inline-block;
+            font-size: 3rem;
+            /* Adjust as needed */
+            overflow: hidden;
+            white-space: nowrap;
+            /* Ensure no line breaks */
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 1px;
+            margin-top: -24px;
+            padding: 10px;
+            position: relative;
+            /* Required for pseudo-elements */
+        }
+
+        #about h1::before,
+        #about h1::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: #ff6347;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #about h1::before {
+            left: -60px;
+            /* Position line before the text */
+        }
+
+        #about h1::after {
+            right: -60px;
+            /* Position line after the text */
+        }
+
+        #about h1 span {
+            display: inline-block;
+            opacity: 0;
+            animation: letterDrop 0.5s forwards;
+            margin: 0;
+            /* Ensure no extra margins */
+            padding: 0;
+        }
+
+        #about h1 span:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        #about h1 span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        #about h1 span:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        #about h1 span:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        #about h1 span:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        #about h1 span:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        #about h1 span:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        #about h1 span:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+
+
+        @keyframes textMovement {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .header-text+p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-top: 0.5rem;
+            line-height: 1.6;
+            position: relative;
+            padding: 10px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+            background-size: 200% 100%;
+            transition: background-position 0.5s ease;
+        }
+
+        .header-text+p:hover {
+            background-position: 100% 0;
+            color: #333;
+        }
+
+        .header-name {
+            font-size: 2rem;
+            color: #0dee05;
+            margin: 0.5rem 0;
+            transition: transform 0.3s ease, color 0.3s, text-shadow 0.3s ease;
+            position: relative;
+            display: inline-block;
+            will-change: transform;
+        }
+
+        .header-name:hover {
+            color: #757379e9;
+            text-shadow: 1px 1px 2px rgb(18, 3, 1);
+            transform: scale(1.1);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-30px);
+            }
+
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .animated-text {
+            font-size: 1.2rem;
+            color: #5609f1;
+            margin-top: 20px;
+            text-align: center;
+            animation: bounce 2s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin: 1rem 0;
+            transition: transform 0.6s ease, color 0.3s ease;
+            perspective: 1000px;
+            /* Perspective for 3D effect */
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .section-title:hover {
+            transform: rotateY(15deg) rotateX(10deg);
+            color: #ff6347;
+            /* Change color on hover */
+        }
+
+
+
+
+        /* Portfolio Section */
+        #portfolio {
+            padding: 20px;
+        }
+
+        #portfolio h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .project {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .project h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        .project p {
+            font-size: 1em;
+            margin: 10px 0;
+        }
+
+        .project a {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .project a:hover {
+            background-color: #0056b3;
+        }
+
+        #skills-section {
+            padding: 20px;
+        }
+
+        #skills-section h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .skill {
+            margin-bottom: 20px;
+        }
+
+        .skill h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar {
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 20px;
+            ;
+        }
+
+        .progress {
+            background-color: #007BFF;
+            height: 100%;
+            width: 0;
+            transition: width 0.1s ease-out;
+
+        }
+
+        @keyframes progress-bar {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: var(--skill-width);
+            }
+        }
+
+        /* Specific widths for each skill */
+        .html-skill {
+            --skill-width: 80%;
+        }
+
+        .css-skill {
+            --skill-width: 70%;
+        }
+
+        .python-skill {
+            --skill-width: 60%;
+        }
+
+        .js-skill {
+            --skill-width: 55%;
+        }
+
+        .php-skill {
+            --skill-width: 40%;
+        }
+
+
+        /* Contact Section */
+        #contactSection {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(45deg, #f3ec78, #af4261);
+            animation: backgroundAnimation 10s infinite alternate;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        #contactSection:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background: linear-gradient(45deg, #f3ec78, #af4261);
+            }
+
+            100% {
+                background: linear-gradient(45deg, #4CAF50, #45a049);
+            }
+        }
+
+        #contactSection h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        /* Form Wrapper */
+        #contactForm {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        /* Updated hover effect to zoom in without angular rotation */
+        #contactForm:hover {
+            transform: scale(1.1);
+            /* Zoom-in effect */
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        #contactForm:active {
+            transform: scale(1.05);
+            /* Slightly smaller when pressed */
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+            /* Shadow effect */
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            /* Dark color for visibility */
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transition */
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+            /* Placeholder text color */
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+            /* Optional shadow effect */
+            transform: scale(1.1);
+            /* Zoom-in effect */
+        }
+
+        /* Submit Button */
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #f44336;
+            /* Original color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transition */
+            transform: scale(0.95);
+            /* Slightly smaller by default */
+        }
+
+        button[type="submit"]:hover {
+            background-color: #4CAF50;
+            /* Change to green on hover */
+            transform: scale(1.05);
+            /* Slightly larger on hover */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            /* Shadow effect */
+        }
+
+        button[type="submit"]:active {
+            transform: scale(0.95);
+            /* Slightly smaller when pressed */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* Reduced shadow effect */
+        }
+
+        @keyframes buttonAnimation {
+            0% {
+                background-color: #4CAF50;
+            }
+
+            100% {
+                background-color: #45a049;
+            }
+        }
+
+        /* Social Media Links */
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #333;
+            /* Default background color */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 24px;
+            /* Size of the icon */
+        }
+
+        .social-links a:hover {
+            background-color: #555;
+            /* Change color on hover */
+            transform: scale(1.1);
+            /* Slightly enlarge on hover */
+        }
+
+        /* Specific colors for different icons */
+        #facebook {
+            background-color: #3b5998;
+        }
+
+        #github {
+            background-color: #333;
+        }
+
+        #email {
+            background-color: #d14836;
+        }
+
+        #whatsapp {
+            background-color: #25D366;
+        }
+
+        #whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
