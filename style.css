@@ -629,6 +629,7 @@
                 height: auto;
                 position: relative;
                 transform: none; /* Reset any transforms applied */
+                z-index: 1000;
             }
         
             .sidebar:hover {
