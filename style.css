@@ -1,7 +1,6 @@
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'); 
 
-        /* Add your CSS styles here */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -26,7 +25,6 @@
         .sidebar:hover {
             width: 220px;
             transform: translateX(10px);
-            /* Move sidebar to the right */
         }
 
         .sidebar nav {
@@ -54,7 +52,7 @@
 
         .sidebar:hover~.main-content #about {
             transform: translateX(10px);
-            /* Move #about to the right on sidebar hover */
+            
         }
 
         #about {
@@ -64,7 +62,7 @@
             width: 100%;
             height: 100vh;
             overflow: auto;
-            /* Allow scrolling if content exceeds viewport */
+            
             padding: 20px;
             box-sizing: border-box;
             display: flex;
@@ -144,16 +142,13 @@
         #about h1 {
             display: inline-block;
             font-size: 3rem;
-            /* Adjust as needed */
             overflow: hidden;
             white-space: nowrap;
-            /* Ensure no line breaks */
             font-family: 'Courier New', Courier, monospace;
             margin-bottom: 1px;
             margin-top: -24px;
             padding: 10px;
             position: relative;
-            /* Required for pseudo-elements */
         }
 
         #about h1::before,
@@ -169,12 +164,10 @@
 
         #about h1::before {
             left: -60px;
-            /* Position line before the text */
         }
 
         #about h1::after {
             right: -60px;
-            /* Position line after the text */
         }
 
         #about h1 span {
@@ -182,7 +175,6 @@
             opacity: 0;
             animation: letterDrop 0.5s forwards;
             margin: 0;
-            /* Ensure no extra margins */
             padding: 0;
         }
 
@@ -300,7 +292,7 @@
             margin: 1rem 0;
             transition: transform 0.6s ease, color 0.3s ease;
             perspective: 1000px;
-            /* Perspective for 3D effect */
+            
             margin-top: 0;
             margin-bottom: 0;
         }
@@ -308,13 +300,12 @@
         .section-title:hover {
             transform: rotateY(15deg) rotateX(10deg);
             color: #ff6347;
-            /* Change color on hover */
         }
 
 
 
 
-        /* Portfolio Section */
+        
         #portfolio {
             padding: 20px;
         }
@@ -409,7 +400,6 @@
             }
         }
 
-        /* Specific widths for each skill */
         .html-skill {
             --skill-width: 80%;
         }
@@ -430,8 +420,6 @@
             --skill-width: 40%;
         }
 
-
-        /* Contact Section */
         #contactSection {
             padding: 20px;
             max-width: 600px;
@@ -464,7 +452,7 @@
             color: #fff;
         }
 
-        /* Form Wrapper */
+
         #contactForm {
             background: #fff;
             padding: 20px;
@@ -473,21 +461,18 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        /* Updated hover effect to zoom in without angular rotation */
         #contactForm:hover {
             transform: scale(1.1);
-            /* Zoom-in effect */
+            
             box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
         }
 
         #contactForm:active {
             transform: scale(1.05);
-            /* Slightly smaller when pressed */
+            
             box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-            /* Shadow effect */
         }
 
-        /* Form Elements */
         .form-group {
             margin-bottom: 15px;
         }
@@ -496,7 +481,6 @@
             display: block;
             margin-bottom: 5px;
             color: #333;
-            /* Dark color for visibility */
         }
 
         .form-group input,
@@ -507,56 +491,44 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            /* Smooth transition */
         }
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
             color: #999;
-            /* Placeholder text color */
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             border-color: #4CAF50;
             box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
-            /* Optional shadow effect */
             transform: scale(1.1);
-            /* Zoom-in effect */
         }
 
-        /* Submit Button */
         button[type="submit"] {
             display: block;
             width: 100%;
             padding: 10px;
             background-color: #f44336;
-            /* Original color */
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            /* Smooth transition */
             transform: scale(0.95);
-            /* Slightly smaller by default */
         }
 
         button[type="submit"]:hover {
             background-color: #4CAF50;
-            /* Change to green on hover */
             transform: scale(1.05);
-            /* Slightly larger on hover */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            /* Shadow effect */
+            
         }
 
         button[type="submit"]:active {
             transform: scale(0.95);
-            /* Slightly smaller when pressed */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            /* Reduced shadow effect */
         }
 
         @keyframes buttonAnimation {
@@ -569,7 +541,6 @@
             }
         }
 
-        /* Social Media Links */
         .social-links {
             margin-top: 20px;
             text-align: center;
@@ -583,20 +554,15 @@
             text-decoration: none;
             color: #fff;
             background-color: #333;
-            /* Default background color */
             transition: background-color 0.3s ease, transform 0.3s ease;
             font-size: 24px;
-            /* Size of the icon */
         }
 
         .social-links a:hover {
             background-color: #555;
-            /* Change color on hover */
             transform: scale(1.1);
-            /* Slightly enlarge on hover */
         }
 
-        /* Specific colors for different icons */
         #facebook {
             background-color: #3b5998;
         }
@@ -619,7 +585,6 @@
 
         .submitted {
             opacity: 0.5;
-           
         }
         
 
@@ -628,7 +593,7 @@
                 width: 100%;
                 height: auto;
                 position: relative;
-                transform: none; /* Reset any transforms applied */
+                transform: none; 
                 z-index: 1000;
             }
         
@@ -674,7 +639,6 @@
             }
         }
         
-        /* Ensuring that other sections adapt to smaller screens */
         @media (max-width: 576px) {
             .header-text {
                 font-size: 1.2rem;
