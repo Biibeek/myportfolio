@@ -617,7 +617,7 @@ body {
 
         @media (max-width: 768px) {
             .sidebar {
-                width: 100%;
+                width: 80%;
                 height: auto;
                 position: relative;
                 transform: none; 
@@ -645,6 +645,13 @@ body {
             .sidebar a:hover {
                 background-color: red;
             }
+
+            .theme-icon {
+                position: fixed;
+                top: 10px; /* Adjust based on your preference */
+                right: 10px; /* Adjust to avoid overlap with the viewport edge */
+                z-index: 1100; /* Ensure it's above the sidebar */
+            }
         
             .main-content {
                 margin-left: 0;
@@ -669,6 +676,12 @@ body {
         @media (max-width: 576px) {
             .header-text {
                 font-size: 1.2rem;
+            }
+
+
+            .theme-icon {
+                top: 60px; /* Adjust based on the height of your navbar */
+                right: 10px; /* Ensure it stays aligned */
             }
         
             .section-title {
