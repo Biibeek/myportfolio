@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    <div class="theme-toggle">
+        <i id="theme-icon" class="fas fa-sun"></i>
+    </div>
     <div class="sidebar">
         <nav>
             <a href="#" data-target="home">Home</a>
@@ -175,8 +178,6 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const headerText = document.querySelector('.header-text');
-
             // Handle sidebar link clicks
             document.querySelectorAll('.sidebar a').forEach(link => {
                 link.addEventListener('click', function (event) {
@@ -203,7 +204,34 @@
                 });
             });
 
+            // Theme Toggle
+            const themeIcon = document.getElementById('theme-icon');
+            const currentTheme = localStorage.getItem('theme') || 'light';
+
+            // Set the initial theme and icon
+            if (currentTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+
+            themeIcon.addEventListener('click', () => {
+                const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+
+                // Toggle icon classes based on the new theme
+                if (theme === 'dark') {
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                } else {
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                }
+            });
+
             // Handle zoom effect on the header text
+            const headerText = document.querySelector('.header-text');
             document.addEventListener('mousemove', (event) => {
                 if (headerText) {
                     const rect = headerText.getBoundingClientRect();
@@ -289,6 +317,7 @@
             });
         });
     </script>
+
 
 
 
