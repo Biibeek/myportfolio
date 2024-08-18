@@ -27,7 +27,7 @@ body {
 }
 
 .theme-toggle {
-    position: fixed;
+    position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
@@ -103,7 +103,7 @@ body {
 
 
         .main-content {
-            margin-left: 200px;
+            margin-left: 220px;
             padding: 20px;
             width: calc(100% - 200px);
             flex: 1;
@@ -619,20 +619,25 @@ body {
             .sidebar {
                 width: 80%;
                 height: auto;
-                position: relative; 
+                position: fixed;
+                top: 0;
+                left: 0;
+                display: flex;
+                justify-content: space-between;
                 z-index: 1000;
-                padding-top: 10px;
+                padding: 10px;
+                align-items: center;
                 
             }
         
-            .sidebar:hover {
-                width: 100%;
             
-            }
         
             .sidebar nav {
                 flex-direction: row;
-                flex-wrap: wrap;
+                width: auto; /* Allows space for the theme icon */
+                display: flex;
+                flex-grow: 1;
+                justify-content: space-around; /* Spreads out nav items evenly */
             }
         
             .sidebar a {
@@ -642,21 +647,26 @@ body {
                 width: auto;
                 border-right: 1px solid #444;
             }
+            .sidebar a:last-child {
+                border-right: none; /* Removes border from the last nav link */
+            }
         
             .sidebar a:hover {
                 background-color: red;
             }
 
-            .theme-icon {
-                position: fixed;
-                top: 10px; /* Adjust based on your preference */
-                right: 10px; /* Adjust to avoid overlap with the viewport edge */
-                z-index: 1100; /* Ensure it's above the sidebar */
-            }
+                .theme-icon {
+                    position: fixed;
+                    top: auto;
+                    right: auto;
+                    margin-left: 10px; /* Space between last nav link and icon */
+                    z-index: 1100; 
+                }
         
             .main-content {
-                margin-left: 0;
-                width: 100%;
+            margin-top: 100px;
+            margin-left: 0px;
+            width: 100%;
                 padding: 10px; 
             }
         
