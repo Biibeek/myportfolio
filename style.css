@@ -619,14 +619,15 @@ body {
             .sidebar {
                 width: 80%;
                 height: auto;
-                position: relative;
-                transform: none; 
+                position: relative; 
                 z-index: 1000;
+                padding-top: 10px;
+                
             }
         
             .sidebar:hover {
                 width: 100%;
-                transform: none;
+            
             }
         
             .sidebar nav {
